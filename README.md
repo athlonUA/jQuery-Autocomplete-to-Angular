@@ -1,20 +1,20 @@
 # jQuery-Autocomplete-to-Angular
 
-### Devbridge Group's Ajax AutoComplete for jQuery used as an AngularJS Directive
+Devbridge Group's Ajax AutoComplete for jQuery used as an AngularJS Directive
 
 ## Installing
 
-1. Retrieve the latest release of [Devbridge's Ajax Autocomplete for jQuery plugin](https://github.com/devbridge/jQuery-Autocomplete)
+Retrieve and reference the latest release of [Devbridge's Ajax Autocomplete for jQuery plugin](https://github.com/devbridge/jQuery-Autocomplete) in your project.
 
-2. Copy the directive and service into your AngularJS app.
+Copy autocompleteDirective.js and dataService.js into your AngularJS app.
 
-3. Modify the module name in each to meet your application
+Modify the module name in each to meet your application.
 
 ```
 var app = angular.module('MyApp');
 ```
 
-4. Update dataService.js with ajax call you normally would make
+Update dataService.js with ajax call you normally would make.
 
 ```
 getData: function () {
@@ -22,14 +22,14 @@ getData: function () {
 		data = $http.get('api/data')
 ```
 
-5. Update autocompleteDirective.js with .getData() (use .getStaticData() if using a static array in the service)
+Update autocompleteDirective.js with .getData() (use .getStaticData() if using a static array in the service).
 
 ```
 dataService.getData()
 	.then(function (data) {
 ```
 
-6. Update autocompleteDirective.js with the property that you want the autocomplete to use
+Update autocompleteDirective.js with the object property that you want the autocomplete to use.
 
 ```
 lookup: $.map(data, function (object, i) {
@@ -37,7 +37,7 @@ lookup: $.map(data, function (object, i) {
 }),
 ```
 
-7. Add the directive to the input field(s) of your choosing
+Add the directive to the input field(s) of your choosing.
 
 ```
 <input type="text" ng-model="my.value" auto-complete />
@@ -45,7 +45,7 @@ lookup: $.map(data, function (object, i) {
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
