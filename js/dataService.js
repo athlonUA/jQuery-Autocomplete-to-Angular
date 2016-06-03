@@ -1,3 +1,7 @@
+// File: dataService.js
+// Author: Pat Migliaccio (github.com/pmigliaccio)
+// Last Revised: 6/3/16
+
 (function () {
     'use strict';
 
@@ -9,8 +13,8 @@
 
         return {
             getData: function () {
-                if (!data) {
-                    data = $http.get('api/data') //url for the HttpRequest
+                if (!data) {	//gets data only once, prevents multiple calls for each directive
+                    data = $http.get('api/data')	//url for the HttpRequest
                                 .then(function (response) {
                                     return response.data;
                                 }, function (error) {
