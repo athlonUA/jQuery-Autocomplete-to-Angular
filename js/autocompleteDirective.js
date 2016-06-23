@@ -16,19 +16,21 @@
 
                 dataService.getStaticData()	//.getData() for Ajax service call
                     .then(function (data) {
-                        $(elem).devbridgeAutocomplete({
-                            lookup: $.map(data, function (object, i) {
-                                return { value: object.value, data: object }; //value parameter will update the autocomplete field
-                            }),
-							//updates on field selection
-                            onSelect: function () {
-                                update();
-                            },
-							//if not an autocomplete option, empties field
-                            onInvalidateSelection: function () {
-                                $(this).val('');
-                            }
-                        });
+                        if (typeof data !== "undefined" && data != null){
+                            $(elem).devbridgeAutocomplete({
+                                lookup: $.map(data, function (object) {
+                                    return { value: object.value, data: object }; //value parameter will update the autocomplete field
+                                }),
+                                //updates on field selection
+                                onSelect: function () {
+                                    update();
+                                },
+                                //if not an autocomplete option, empties field
+                                onInvalidateSelection: function () {
+                                    $(this).val('');
+                                }
+                            });  
+                        }
                     });
 
 				//updates only on loss of field focus

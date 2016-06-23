@@ -19,6 +19,7 @@
                                     return response.data;
                                 }, function (error) {
                                     console.log(error);
+                                    return {};
                                 });
                 }
                 return data;
